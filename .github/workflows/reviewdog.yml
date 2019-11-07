@@ -15,7 +15,10 @@ jobs:
 
       - name: Dump GitHub Event
         run: cat "${GITHUB_EVENT_PATH}"
-
+        
+      - name: Check out our code into the action's working directory
+        uses: actions/checkout@master
+        
       - name: Setup reviewdog
         run: |
           mkdir -p $HOME/bin && curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s -- -b $HOME/bin
@@ -25,7 +28,7 @@ jobs:
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          reviewdog -conf=./.reviewdog.yml -reporter=github-pr-check
+          reviewdog -reporter=github-pr-check
           
    misspell:
     name: runner / misspell
