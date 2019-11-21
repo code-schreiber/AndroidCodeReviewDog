@@ -29,16 +29,4 @@ jobs:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           reviewdog -reporter=github-pr-check
-          
-   misspell:
-    name: runner / misspell
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Check out code.
-        uses: actions/checkout@v1
-      - name: misspell
-        uses: reviewdog/action-misspell@v1
-        with:
-          github_token: ${{ secrets.github_token }}
-          locale: "US"
+
