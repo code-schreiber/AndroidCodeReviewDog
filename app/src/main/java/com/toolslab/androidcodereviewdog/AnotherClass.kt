@@ -1,6 +1,8 @@
 package com.toolslab.androidcodereviewdog
 
+
 import androidx.appcompat.app.AppCompatActivity
+
 
 class AnotherClass {
 
