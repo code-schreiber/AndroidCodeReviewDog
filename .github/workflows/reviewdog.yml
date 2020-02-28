@@ -8,13 +8,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Dump GitHub Context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "${GITHUB_CONTEXT}"
-
-      - name: Dump GitHub Event
-        run: cat "${GITHUB_EVENT_PATH}"
+      - name: Check out code.
+        uses: actions/checkout@v1
 
       - name: Run detekt
         run: ./gradlew detekt
