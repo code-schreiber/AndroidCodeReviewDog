@@ -16,6 +16,9 @@ jobs:
       - name: Dump GitHub Event
         run: cat "${GITHUB_EVENT_PATH}"
 
+      - name: Run detekt
+        run: ./gradlew detekt
+
       - name: Setup reviewdog
         run: |
           mkdir -p $HOME/bin && curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s -- -b $HOME/bin
